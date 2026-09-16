@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+from .path_parser import PathParser
+
 
 class LaCAMPlanner:
     """
@@ -9,7 +11,6 @@ class LaCAMPlanner:
     """
 
     def __init__(self):
-        # Location of the compiled LaCAM executable
         self.lacam_executable = os.path.expanduser(
             "~/warehouse_ws/algorithms/lacam0/build/main"
         )
@@ -18,6 +19,8 @@ class LaCAMPlanner:
             raise FileNotFoundError(
                 f"LaCAM executable not found: {self.lacam_executable}"
             )
+
+        self.path_parser = PathParser()
 
         print(f"LaCAM planner ready: {self.lacam_executable}")
 
@@ -123,3 +126,60 @@ class LaCAMPlanner:
         print(f"LaCAM solution saved: {output_file}")
 
         return output_file
+
+    def plan(
+        self,
+        map_file,
+        width,
+        height,
+        robots,
+        scenario_file="/tmp/bel_lacam_scenario.scen",
+        result_file="/tmp/bel_lacam_result.txt",
+        time_limit=10
+    ):
+        """
+        Complete multi-AMR planning pipeline.
+
+        Creates the scenario, runs LaCAM, parses the result,
+        and returns a path for each robot.
+        """
+
+        if not robots:
+            raise ValueError("At least one robot is required for planning.")
+
+        if not os.path.isfile(map_file):
+            raise FileNotFoundError(
+                f"Map file not found: {map_file}"
+            )
+
+        map_name = os.path.basename(map_file)
+
+        robot_ids = [
+            robot["robot_id"]
+            for robot in robots
+        ]
+
+        self.create_scenario(
+            map_name=map_name,
+            width=width,
+            height=height,
+            robots=robots,
+            output_file=scenario_file
+        )
+
+        self.run_lacam(
+            map_file=map_file,
+            scenario_file=scenario_file,
+            number_of_robots=len(robots),
+            output_file=result_file,
+            time_limit=time_limit
+        )
+
+        paths = self.path_parser.parse(
+            result_file,
+            robot_ids
+        )
+
+        print("Multi-AMR paths generated successfully.")
+
+        return paths
