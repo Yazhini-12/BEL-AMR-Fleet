@@ -96,11 +96,12 @@ setup(
     license='MIT',
 
     tests_require=['pytest'],
-
-    entry_points={
-        'console_scripts': [
-            'robot_status = bel_amr_fleet.robot_status:main',
-            'peer_communication = bel_amr_fleet.peer_communication:main',
-        ],
-    },
+  entry_points={
+    'console_scripts': [
+        'robot_status = bel_amr_fleet.robot_status:main',
+        'peer_communication = bel_amr_fleet.peer_communication:main',
+        'robot_controller = bel_amr_fleet.robot_controller:main',
+    ],
+},
+    
 )
