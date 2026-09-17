@@ -55,7 +55,6 @@
     <!-- =========================
          OUTER WALLS
          ========================= -->
-
     <model name="wall_north">
       <static>true</static>
       <link name="wall">
@@ -67,7 +66,6 @@
           </geometry>
           <pose>0 12 2.5 0 0 0</pose>
         </collision>
-
         <visual name="visual">
           <geometry>
             <box>
@@ -90,7 +88,6 @@
           </geometry>
           <pose>0 -12 2.5 0 0 0</pose>
         </collision>
-
         <visual name="visual">
           <geometry>
             <box>
@@ -113,7 +110,6 @@
           </geometry>
           <pose>15 0 2.5 0 0 0</pose>
         </collision>
-
         <visual name="visual">
           <geometry>
             <box>
@@ -136,7 +132,6 @@
           </geometry>
           <pose>-15 0 2.5 0 0 0</pose>
         </collision>
-
         <visual name="visual">
           <geometry>
             <box>
@@ -151,90 +146,53 @@
     <!-- =========================
          STORAGE RACK ROW 1
          ========================= -->
-
     <model name="rack_01">
       <static>true</static>
 
       <link name="rack">
-
         <!-- vertical posts -->
-
         <collision name="post1">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>-2.8 -3 2 0 0 0</pose>
         </collision>
 
         <collision name="post2">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>2.8 -3 2 0 0 0</pose>
         </collision>
 
         <collision name="post3">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>-2.8 3 2 0 0 0</pose>
         </collision>
 
         <collision name="post4">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>2.8 3 2 0 0 0</pose>
         </collision>
 
         <!-- shelves -->
-
         <collision name="shelf1">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 0.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf2">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 1.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf3">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 2.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf4">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 3.8 0 0 0</pose>
         </collision>
 
-        <!-- visual -->
-
+        <!-- visuals -->
         <visual name="rack_visual">
           <geometry>
             <box>
@@ -247,7 +205,6 @@
             <diffuse>0.8 0.55 0.05 1</diffuse>
           </material>
         </visual>
-
       </link>
 
       <pose>-8 3 0 0 0 0</pose>
@@ -256,81 +213,47 @@
     <!-- =========================
          STORAGE RACK ROW 2
          ========================= -->
-
     <model name="rack_02">
       <static>true</static>
-
       <link name="rack">
 
         <collision name="post1">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>-2.8 -3 2 0 0 0</pose>
         </collision>
 
         <collision name="post2">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>2.8 -3 2 0 0 0</pose>
         </collision>
 
         <collision name="post3">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>-2.8 3 2 0 0 0</pose>
         </collision>
 
         <collision name="post4">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>2.8 3 2 0 0 0</pose>
         </collision>
 
         <collision name="shelf1">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 0.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf2">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 1.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf3">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 2.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf4">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 3.8 0 0 0</pose>
         </collision>
 
@@ -342,7 +265,6 @@
           </geometry>
           <pose>0 0 0.8 0 0 0</pose>
         </visual>
-
       </link>
 
       <pose>0 3 0 0 0 0</pose>
@@ -351,84 +273,49 @@
     <!-- =========================
          STORAGE RACK ROW 3
          ========================= -->
-
     <model name="rack_03">
       <static>true</static>
-
       <link name="rack">
 
         <collision name="post1">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>-2.8 -3 2 0 0 0</pose>
         </collision>
 
         <collision name="post2">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>2.8 -3 2 0 0 0</pose>
         </collision>
 
         <collision name="post3">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>-2.8 3 2 0 0 0</pose>
         </collision>
 
         <collision name="post4">
-          <geometry>
-            <box>
-              <size>0.15 0.15 4</size>
-            </box>
-          </geometry>
+          <geometry><box><size>0.15 0.15 4</size></box></geometry>
           <pose>2.8 3 2 0 0 0</pose>
         </collision>
 
         <collision name="shelf1">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 0.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf2">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 1.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf3">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 2.8 0 0 0</pose>
         </collision>
 
         <collision name="shelf4">
-          <geometry>
-            <box>
-              <size>5.8 6 0.18</size>
-            </box>
-          </geometry>
+          <geometry><box><size>5.8 6 0.18</size></box></geometry>
           <pose>0 0 3.8 0 0 0</pose>
         </collision>
-
       </link>
 
       <pose>8 3 0 0 0 0</pose>
@@ -437,24 +324,14 @@
     <!-- =========================
          STORAGE BOXES
          ========================= -->
-
     <model name="box_01">
       <static>true</static>
       <link name="box">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </visual>
       </link>
       <pose>-9 1 1.2 0 0 0</pose>
@@ -464,46 +341,25 @@
       <static>true</static>
       <link name="box">
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </visual>
       </link>
       <pose>-7 1 2.2 0 0 0</pose>
     </model>
 
-    <!-- CORRECTED BOX 03 -->
-
     <model name="box_03">
       <static>true</static>
       <link name="box">
-
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
+        </collision>
         </visual>
-
       </link>
       <pose>-1 1 1.2 0 0 0</pose>
     </model>
@@ -511,23 +367,12 @@
     <model name="box_04">
       <static>true</static>
       <link name="box">
-
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </visual>
-
       </link>
       <pose>1 1 2.2 0 0 0</pose>
     </model>
@@ -535,23 +380,12 @@
     <model name="box_05">
       <static>true</static>
       <link name="box">
-
         <collision name="collision">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </collision>
-
         <visual name="visual">
-          <geometry>
-            <box>
-              <size>1 0.8 0.7</size>
-            </box>
-          </geometry>
+          <geometry><box><size>1 0.8 0.7</size></box></geometry>
         </visual>
-
       </link>
       <pose>7 1 1.2 0 0 0</pose>
     </model>
@@ -559,11 +393,9 @@
     <!-- =========================
          AMR NAVIGATION LANES
          ========================= -->
-
     <model name="lane_center">
       <static>true</static>
       <link name="lane">
-
         <visual name="visual">
           <geometry>
             <box>
@@ -571,20 +403,17 @@
             </box>
           </geometry>
           <pose>0 0 0.006 0 0 0</pose>
-
           <material>
             <ambient>0.05 0.7 0.1 1</ambient>
             <diffuse>0.05 0.7 0.1 1</diffuse>
           </material>
         </visual>
-
       </link>
     </model>
 
     <model name="lane_left">
       <static>true</static>
       <link name="lane">
-
         <visual name="visual">
           <geometry>
             <box>
@@ -592,20 +421,17 @@
             </box>
           </geometry>
           <pose>0 7 0.006 0 0 0</pose>
-
           <material>
             <ambient>0.05 0.7 0.1 1</ambient>
             <diffuse>0.05 0.7 0.1 1</diffuse>
           </material>
         </visual>
-
       </link>
     </model>
 
     <model name="lane_right">
       <static>true</static>
       <link name="lane">
-
         <visual name="visual">
           <geometry>
             <box>
@@ -613,20 +439,17 @@
             </box>
           </geometry>
           <pose>0 -7 0.006 0 0 0</pose>
-
           <material>
             <ambient>0.05 0.7 0.1 1</ambient>
             <diffuse>0.05 0.7 0.1 1</diffuse>
           </material>
         </visual>
-
       </link>
     </model>
 
     <!-- =========================
          CHARGING AREA
          ========================= -->
-
     <model name="charging_station">
       <static>true</static>
       <link name="station">
@@ -655,11 +478,9 @@
     <!-- =========================
          LOADING AREA
          ========================= -->
-
     <model name="loading_area">
       <static>true</static>
       <link name="area">
-
         <visual name="visual">
           <geometry>
             <box>
@@ -667,22 +488,19 @@
             </box>
           </geometry>
           <pose>9 -8 0.01 0 0 0</pose>
-
           <material>
             <ambient>0.8 0.8 0.1 1</ambient>
             <diffuse>0.8 0.8 0.1 1</diffuse>
           </material>
         </visual>
-
       </link>
     </model>
 
     <!-- =========================
          AMR 01
          ========================= -->
-
     <include>
-      <uri>model://amr_01</uri>
+      <uri>model://tugbot</uri>
       <name>AMR-01</name>
       <pose>-10 -7 0.2 0 0 0</pose>
     </include>
@@ -690,9 +508,8 @@
     <!-- =========================
          AMR 02
          ========================= -->
-
     <include>
-      <uri>model://amr_02</uri>
+      <uri>model://tugbot</uri>
       <name>AMR-02</name>
       <pose>-5 -7 0.2 0 0 0</pose>
     </include>
@@ -700,9 +517,8 @@
     <!-- =========================
          AMR 03
          ========================= -->
-
     <include>
-      <uri>model://amr_03</uri>
+      <uri>model://tugbot</uri>
       <name>AMR-03</name>
       <pose>0 -7 0.2 0 0 0</pose>
     </include>
@@ -710,7 +526,6 @@
     <!-- =========================
          GUI
          ========================= -->
-
     <gui fullscreen="0">
       <camera name="user_camera">
         <pose>18 -20 20 0.75 0 0.65</pose>

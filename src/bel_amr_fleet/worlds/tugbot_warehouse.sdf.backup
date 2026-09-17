@@ -682,7 +682,7 @@
          ========================= -->
 
     <include>
-      <uri>model://amr_01</uri>
+      <uri>model://tugbot</uri>
       <name>AMR-01</name>
       <pose>-10 -7 0.2 0 0 0</pose>
     </include>
@@ -692,7 +692,7 @@
          ========================= -->
 
     <include>
-      <uri>model://amr_02</uri>
+      <uri>model://tugbot</uri>
       <name>AMR-02</name>
       <pose>-5 -7 0.2 0 0 0</pose>
     </include>
@@ -702,7 +702,7 @@
          ========================= -->
 
     <include>
-      <uri>model://amr_03</uri>
+      <uri>model://tugbot</uri>
       <name>AMR-03</name>
       <pose>0 -7 0.2 0 0 0</pose>
     </include>
