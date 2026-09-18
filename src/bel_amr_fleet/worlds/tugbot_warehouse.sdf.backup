@@ -623,34 +623,301 @@
       </link>
     </model>
 
-    <!-- =========================
-         CHARGING AREA
-         ========================= -->
+    <!-- ==================================================
+     CHARGING AREA
+     5 PLUG POINTS
+     3 ROBOTS
+     ================================================== -->
 
-    <model name="charging_station">
-      <static>true</static>
-      <link name="station">
+<model name="charging_station">
 
-        <collision name="body">
-          <geometry>
-            <box>
-              <size>4 1 1.5</size>
-            </box>
-          </geometry>
-          <pose>0 10 0.75 0 0 0</pose>
-        </collision>
+  <static>true</static>
 
-        <visual name="body_visual">
-          <geometry>
-            <box>
-              <size>4 1 1.5</size>
-            </box>
-          </geometry>
-          <pose>0 10 0.75 0 0 0</pose>
-        </visual>
 
-      </link>
-    </model>
+  <!-- ==================================================
+       LARGE YELLOW RECTANGULAR BORDER
+
+       Area:
+       X = -9 to +9
+       Y = 5 to 10
+       ================================================== -->
+
+
+  <!-- LEFT BORDER -->
+  <link name="border_left">
+
+    <visual name="visual">
+
+      <pose>-9` 7.5 0.04 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>0.20 5.0 0.05</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 0.75 0 1</ambient>
+        <diffuse>1 0.75 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+  <!-- RIGHT BORDER -->
+  <link name="border_right">
+
+    <visual name="visual">
+
+      <pose>9 7.5 0.04 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>0.20 5.0 0.05</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 0.75 0 1</ambient>
+        <diffuse>1 0.75 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+  <!-- TOP BORDER -->
+  <link name="border_top">
+
+    <visual name="visual">
+
+      <pose>0 10 0.04 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>18 0.20 0.05</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 0.75 0 1</ambient>
+        <diffuse>1 0.75 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+  <!-- BOTTOM BORDER -->
+  <link name="border_bottom">
+
+    <visual name="visual">
+
+      <pose>0 5 0.04 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>18 0.20 0.05</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 0.75 0 1</ambient>
+        <diffuse>1 0.75 0 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+
+  <!-- ==================================================
+       CHARGING PLUG 1
+       ================================================== -->
+
+  <link name="plug_01">
+
+    <collision name="collision">
+      <pose>-7 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <pose>-7 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 1 1 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+
+  <!-- ==================================================
+       CHARGING PLUG 2
+       ================================================== -->
+
+  <link name="plug_02">
+
+    <collision name="collision">
+      <pose>-3.5 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <pose>-3.5 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 1 1 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+
+  <!-- ==================================================
+       CHARGING PLUG 3
+       ================================================== -->
+
+  <link name="plug_03">
+
+    <collision name="collision">
+      <pose>0 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <pose>0 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 1 1 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+
+  <!-- ==================================================
+       CHARGING PLUG 4
+       EMPTY
+       ================================================== -->
+
+  <link name="plug_04">
+
+    <collision name="collision">
+      <pose>3.5 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <pose>3.5 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 1 1 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+
+  <!-- ==================================================
+       CHARGING PLUG 5
+       EMPTY
+       ================================================== -->
+
+  <link name="plug_05">
+
+    <collision name="collision">
+      <pose>7 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+    </collision>
+
+    <visual name="visual">
+      <pose>7 9.5 0.5 0 0 0</pose>
+
+      <geometry>
+        <box>
+          <size>1.2 0.5 1.0</size>
+        </box>
+      </geometry>
+
+      <material>
+        <ambient>1 1 1 1</ambient>
+        <diffuse>1 1 1 1</diffuse>
+      </material>
+
+    </visual>
+
+  </link>
+
+
+</model>
 
     <!-- =========================
          LOADING AREA
@@ -677,35 +944,37 @@
       </link>
     </model>
 
-    <!-- =========================
-         AMR 01
-         ========================= -->
+      <!-- ==================================================
+     AMR-01
+     ================================================== -->
 
-    <include>
-      <uri>model://tugbot</uri>
-      <name>AMR-01</name>
-      <pose>-10 -7 0.2 0 0 0</pose>
-    </include>
+<include>
+  <uri>model://pioneer_3at</uri>
+  <name>AMR-01</name>
+  <pose>-7 7.5 0.5 0 0 1.5708</pose>
+</include>
 
-    <!-- =========================
-         AMR 02
-         ========================= -->
 
-    <include>
-      <uri>model://tugbot</uri>
-      <name>AMR-02</name>
-      <pose>-5 -7 0.2 0 0 0</pose>
-    </include>
+<!-- ==================================================
+     AMR-02
+     ================================================== -->
 
-    <!-- =========================
-         AMR 03
-         ========================= -->
+<include>
+  <uri>model://pioneer_3at</uri>
+  <name>AMR-02</name>
+  <pose>-3.5 7.5 0.5 0 0 1.5708</pose>
+</include>
 
-    <include>
-      <uri>model://tugbot</uri>
-      <name>AMR-03</name>
-      <pose>0 -7 0.2 0 0 0</pose>
-    </include>
+
+<!-- ==================================================
+     AMR-03
+     ================================================== -->
+
+<include>
+  <uri>model://pioneer_3at</uri>
+  <name>AMR-03</name>
+  <pose>0 7.5 0.5 0 0 1.5708</pose>
+</include>
 
     <!-- =========================
          GUI

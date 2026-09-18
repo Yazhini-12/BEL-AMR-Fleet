@@ -1,142 +1,44 @@
-from setuptools import find_packages, setup
-from glob import glob
 import os
 
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
 
-package_name = 'bel_amr_fleet'
 
+def generate_launch_description():
 
-setup(
-    name=package_name,
-    version='0.0.0',
+    package_share = get_package_share_directory('bel_amr_fleet')
 
-    packages=find_packages(exclude=['test']),
+    # Installed warehouse world
+    world_file = os.path.join(
+        package_share,
+        'worlds',
+        'tugbot_warehouse_old.sdf'
+    )
 
-    data_files=[
-        # ROS 2 package index
-        (
-            'share/ament_index/resource_index/packages',
-            ['resource/' + package_name]
+    # Source model directory in your workspace
+    models_dir = os.path.expanduser(
+        '~/bel_amr_ws/src/bel_amr_fleet/models'
+    )
+
+    gazebo_launch = os.path.join(
+        get_package_share_directory('ros_gz_sim'),
+        'launch',
+        'gz_sim.launch.py'
+    )
+
+    return LaunchDescription([
+
+        SetEnvironmentVariable(
+            name='GZ_SIM_RESOURCE_PATH',
+            value=models_dir
         ),
 
-        # package.xml
-        (
-            os.path.join('share', package_name),
-            ['package.xml']
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(gazebo_launch),
+            launch_arguments={
+                'gz_args': f'-r {world_file}'
+            }.items()
         ),
-
-        # Launch files
-        (
-            os.path.join('share', package_name, 'launch'),
-            glob('launch/*.launch.py')
-        ),
-
-        # World files
-        (
-            os.path.join('share', package_name, 'worlds'),
-            glob('worlds/*.sdf')
-        ),
-
-        # TugBot model files ONLY
-        # Do not use glob('models/tugbot/*') because
-        # it also matches the meshes directory.
-        (
-            os.path.join(
-                'share',
-                package_name,
-                'models',
-                'tugbot'
-            ),
-            [
-                'models/tugbot/model.config',
-                'models/tugbot/model.sdf',
-            ]
-        ),
-
-        # TugBot base meshes
-        (
-            os.path.join(
-                'share',
-                package_name,
-                'models',
-                'tugbot',
-                'meshes',
-                'base'
-            ),
-            glob('models/tugbot/meshes/base/*')
-        ),
-
-        # TugBot light meshes
-        (
-            os.path.join(
-                'share',
-                package_name,
-                'models',
-                'tugbot',
-                'meshes',
-                'light_link'
-            ),
-            glob('models/tugbot/meshes/light_link/*')
-        ),
-
-        # TugBot gripper meshes
-        (
-            os.path.join(
-                'share',
-                package_name,
-                'models',
-                'tugbot',
-                'meshes',
-                'gripper2'
-            ),
-            glob('models/tugbot/meshes/gripper2/*')
-        ),
-
-        # TugBot wheel meshes
-        (
-            os.path.join(
-                'share',
-                package_name,
-                'models',
-                'tugbot',
-                'meshes',
-                'wheel'
-            ),
-            glob('models/tugbot/meshes/wheel/*')
-        ),
-
-        # TugBot VLP16 meshes
-        (
-            os.path.join(
-                'share',
-                package_name,
-                'models',
-                'tugbot',
-                'meshes'
-            ),
-            glob('models/tugbot/meshes/*.dae')
-        ),
-    ],
-
-    install_requires=[
-        'setuptools'
-    ],
-
-    zip_safe=True,
-
-    maintainer='yazhini',
-    maintainer_email='yazhini@example.com',
-
-    description='Decentralized AMR Fleet Coordination System',
-
-    license='MIT',
-
-    tests_require=['pytest'],
-
-    entry_points={
-        'console_scripts': [
-            'robot_status = bel_amr_fleet.robot_status:main',
-            'peer_communication = bel_amr_fleet.peer_communication:main',
-        ],
-    },
-)
+    ])

@@ -6,81 +6,79 @@ import os
 package_name = 'bel_amr_fleet'
 
 
+def collect_model_files(model_name):
+    data_files = []
+
+    model_root = os.path.join('models', model_name)
+
+    for root, dirs, files in os.walk(model_root):
+        if not files:
+            continue
+
+        install_dir = os.path.join(
+            'share',
+            package_name,
+            root
+        )
+
+        source_files = [
+            os.path.join(root, filename)
+            for filename in files
+        ]
+
+        data_files.append(
+            (install_dir, source_files)
+        )
+
+    return data_files
+
+
+data_files = [
+    # ROS package index
+    (
+        'share/ament_index/resource_index/packages',
+        ['resource/' + package_name]
+    ),
+
+    # package.xml
+    (
+        os.path.join('share', package_name),
+        ['package.xml']
+    ),
+
+    # Launch files
+    (
+        os.path.join('share', package_name, 'launch'),
+        glob('launch/*.launch.py')
+    ),
+
+    # World files
+    (
+        os.path.join('share', package_name, 'worlds'),
+        glob('worlds/*.sdf')
+    ),
+]
+
+
+# Install every file inside all robot models
+for model_name in [
+    'tugbot',
+    'amr_01',
+    'amr_02',
+    'amr_03'
+]:
+    data_files.extend(
+        collect_model_files(model_name)
+    )
+
+
 setup(
     name=package_name,
     version='0.0.0',
 
     packages=find_packages(exclude=['test']),
 
-            data_files=[
-        (
-            'share/ament_index/resource_index/packages',
-            ['resource/' + package_name]
-        ),
-
-        (
-            'share/' + package_name,
-            ['package.xml']
-        ),
-
-        (
-            os.path.join('share', package_name, 'launch'),
-            glob('launch/*.launch.py')
-        ),
-
-        (
-            os.path.join('share', package_name, 'worlds'),
-            glob('worlds/*.sdf')
-        ),
-
-        # =========================
-        # AMR-01
-        # =========================
-        (
-            os.path.join('share', package_name, 'models', 'amr_01'),
-            glob('models/amr_01/*.sdf')
-        ),
-
-        (
-            os.path.join(
-                'share', package_name,
-                'models', 'amr_01', 'meshes'
-            ),
-            glob('models/amr_01/meshes/*')
-        ),
-
-        # =========================
-        # AMR-02
-        # =========================
-        (
-            os.path.join('share', package_name, 'models', 'amr_02'),
-            glob('models/amr_02/*.sdf')
-        ),
-
-        (
-            os.path.join(
-                'share', package_name,
-                'models', 'amr_02', 'meshes'
-            ),
-            glob('models/amr_02/meshes/*')
-        ),
-
-        # =========================
-        # AMR-03
-        # =========================
-        (
-            os.path.join('share', package_name, 'models', 'amr_03'),
-            glob('models/amr_03/*.sdf')
-        ),
-
-        (
-            os.path.join(
-                'share', package_name,
-                'models', 'amr_03', 'meshes'
-            ),
-            glob('models/amr_03/meshes/*')
-        ),
-    ],
+    data_files=data_files,
 
     install_requires=[
         'setuptools'
