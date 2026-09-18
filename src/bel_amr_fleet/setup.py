@@ -99,6 +99,7 @@ setup(
         'robot_status = bel_amr_fleet.robot_status:main',
         'peer_communication = bel_amr_fleet.peer_communication:main',
         'robot_controller = bel_amr_fleet.robot_controller:main',
+        'fleet_state_node = bel_amr_fleet.fleet_state_node:main',
     ],
 },
     
