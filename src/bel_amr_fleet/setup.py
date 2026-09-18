@@ -99,6 +99,7 @@ setup(
         'robot_status = bel_amr_fleet.robot_status:main',
         'peer_communication = bel_amr_fleet.peer_communication:main',
         'robot_controller = bel_amr_fleet.robot_controller:main',
+	'priority_manager = bel_amr_fleet.priority_manager:main',
     ],
 },
     
